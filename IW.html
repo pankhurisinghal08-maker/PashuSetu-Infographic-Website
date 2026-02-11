@@ -1,0 +1,446 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PashuSetu - Infographic</title>
+    <style>
+        :root {
+            --primary: #2E7D32; /* Forest Green */
+            --secondary: #81C784; /* Light Green */
+            --accent: #FFB74D; /* Orange/Brown for earthiness */
+            --text: #333;
+            --bg: #F1F8E9;
+            --white: #ffffff;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background-color: var(--bg);
+            color: var(--text);
+            line-height: 1.6;
+        }
+
+        /* Header */
+        header {
+            background-color: var(--primary);
+            color: var(--white);
+            padding: 1rem 0;
+            text-align: center;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        header h1 {
+            font-size: 2.5rem;
+            font-weight: 700;
+        }
+
+        header p {
+            font-size: 1.2rem;
+            opacity: 0.9;
+        }
+
+        /* Container */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        /* Section Styles */
+        section {
+            margin-bottom: 60px;
+            padding: 40px;
+            background: var(--white);
+            border-radius: 15px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+            transition: transform 0.3s ease;
+        }
+
+        section:hover {
+            transform: translateY(-5px);
+        }
+
+        h2 {
+            color: var(--primary);
+            text-align: center;
+            font-size: 2rem;
+            margin-bottom: 30px;
+            position: relative;
+        }
+
+        h2::after {
+            content: '';
+            display: block;
+            width: 60px;
+            height: 4px;
+            background: var(--accent);
+            margin: 10px auto;
+            border-radius: 2px;
+        }
+
+        /* Hero Section */
+        .hero {
+            text-align: center;
+            padding: 60px 20px;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: white;
+            border-radius: 0 0 20px 20px;
+            margin-top: -20px;
+            margin-bottom: 40px;
+        }
+
+        .hero h2 {
+            color: white;
+            font-size: 2.5rem;
+        }
+        
+        .hero h2::after { background: white; }
+
+        /* Problem vs Solution - Split View */
+        .comparison {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+
+        .col {
+            flex: 1;
+            min-width: 300px;
+            padding: 20px;
+            border-radius: 10px;
+        }
+
+        .problem {
+            background-color: #ffebee;
+            border-left: 5px solid #e53935;
+        }
+
+        .solution {
+            background-color: #e8f5e9;
+            border-left: 5px solid var(--primary);
+        }
+
+        .col h3 { margin-bottom: 15px; }
+
+        /* Features Grid */
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+        }
+
+        .feature-card {
+            text-align: center;
+            padding: 20px;
+            border: 1px solid #eee;
+            border-radius: 10px;
+        }
+
+        .icon-circle {
+            width: 80px;
+            height: 80px;
+            background: var(--secondary);
+            color: var(--white);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            margin: 0 auto 20px;
+        }
+
+        /* Roadmap / Flow */
+        .flow-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            position: relative;
+        }
+
+        .step {
+            text-align: center;
+            flex: 1;
+            min-width: 200px;
+            position: relative;
+            padding: 20px;
+        }
+
+        .step-number {
+            font-size: 3rem;
+            color: var(--accent);
+            font-weight: bold;
+            display: block;
+            margin-bottom: 10px;
+        }
+
+        /* Tech Stack */
+        .tech-stack {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        .tech-badge {
+            background: #eee;
+            padding: 10px 20px;
+            border-radius: 20px;
+            font-weight: bold;
+            color: #555;
+        }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 40px;
+            background: #333;
+            color: white;
+            margin-top: 40px;
+        }
+
+        footer a {
+            color: var(--secondary);
+            text-decoration: none;
+        }
+
+        @media (max-width: 768px) {
+            header h1 { font-size: 2rem; }
+            .flow-container { flex-direction: column; }
+            .step { margin-bottom: 20px; border-bottom: 1px dashed #ccc; }
+            .step:last-child { border-bottom: none; }
+        }
+        /* --- Flowchart Styles --- */
+.flowchart-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+}
+
+.flow-box {
+    background: white;
+    border: 2px solid var(--primary);
+    padding: 15px 30px;
+    border-radius: 8px;
+    font-weight: bold;
+    color: var(--primary);
+    position: relative;
+    text-align: center;
+    width: 200px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    z-index: 2;
+}
+
+/* Vertical connecting line */
+.line-down {
+    width: 2px;
+    height: 40px;
+    background: var(--primary);
+}
+
+/* The horizontal bar for branching */
+.branch-bar {
+    width: 60%; /* Width of the spread */
+    height: 2px;
+    background: var(--primary);
+    margin-bottom: 0; /* Connects directly to vertical lines below */
+}
+
+/* Container for the 3 branches */
+.branch-group {
+    display: flex;
+    justify-content: space-between;
+    width: 80%; /* Match width relative to branch bar logic roughly */
+    margin-top: -2px; /* Pull up to touch the branch bar */
+}
+
+.branch-col {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    flex: 1;
+    position: relative;
+}
+
+/* Connectors from branch bar to sub-items */
+.line-connector {
+    width: 2px;
+    height: 30px;
+    background: var(--primary);
+}
+
+/* Style for the 'Decision' text */
+.decision-text {
+    background: var(--bg);
+    padding: 0 10px;
+    color: #666;
+    font-size: 0.9rem;
+    margin: -10px 0 10px 0; /* Center over the line */
+}
+
+/* Mobile Responsiveness for Flowchart */
+@media (max-width: 768px) {
+    .branch-group {
+        flex-direction: column;
+        width: 100%;
+    }
+    .branch-bar { display: none; } /* Hide horizontal bar on mobile */
+    .line-connector { height: 30px; }
+    .line-down { height: 30px; }
+    .branch-col { margin-bottom: 20px; }
+    /* Add connecting lines between vertical items on mobile */
+    .branch-col::before {
+        content: '';
+        width: 2px;
+        height: 20px;
+        background: var(--primary);
+        margin-bottom: 5px;
+    }
+}
+    </style>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+
+    <header>
+        <h1>PashuSetu</h1>
+        <p>Connecting Farmers, Vets, and Markets</p>
+    </header>
+
+    <div class="hero">
+        <div class="container">
+            <h2>The Digital Bridge for Animal Welfare</h2>
+            <p>Empowering rural India by providing instant access to veterinary care and livestock commerce.</p>
+        </div>
+    </div>
+
+    <div class="container">
+
+        <section>
+            <h2>Why PashuSetu?</h2>
+            <div class="comparison">
+                <div class="col problem">
+                    <h3><i class="fas fa-exclamation-circle"></i> The Challenge</h3>
+                    <ul>
+                        <li>Lack of immediate veterinary access in rural areas.</li>
+                        <li>Exploitative middlemen in livestock trading.</li>
+                        <li>Misinformation regarding animal health and diet.</li>
+                    </ul>
+                </div>
+                <div class="col solution">
+                    <h3><i class="fas fa-check-circle"></i> The PashuSetu Solution</h3>
+                    <ul>
+                        <li><strong>Telemedicine:</strong> Video call expert vets instantly.</li>
+                        <li><strong>Marketplace:</strong> Buy/Sell cattle directly without commission.</li>
+                        <li><strong>Community:</strong> Verified forums for health tips.</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <section>
+            <h2>Key Features</h2>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="icon-circle"><i class="fas fa-user-md"></i></div>
+                    <h3>Vet Consultation</h3>
+                    <p>Book appointments or chat live with certified veterinarians for quick diagnosis.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="icon-circle"><i class="fas fa-store"></i></div>
+                    <h3>Pashu Mandi</h3>
+                    <p>A digital marketplace to buy and sell livestock with verified listings.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="icon-circle"><i class="fas fa-info-circle"></i></div>
+                    <h3>Information Hub</h3>
+                    <p>Access government schemes, vaccination schedules, and dietary plans.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="icon-circle"><i class="fas fa-language"></i></div>
+                    <h3>Multilingual</h3>
+                    <p>Available in local regional languages to support farmers across India.</p>
+                </div>
+            </div>
+        </section>
+
+        <section>
+    <h2>Platform Workflow</h2>
+    
+    <div class="flowchart-container">
+        <div class="flow-box"><i class="fas fa-mobile-alt"></i> User App Download</div>
+        <div class="line-down"></div>
+        
+        <div class="flow-box">OTP Login / Register</div>
+        <div class="line-down"></div>
+        
+        <div class="decision-text">Choose Service</div>
+        
+        <div class="branch-bar"></div> <div class="branch-group">
+            <div class="branch-col">
+                <div class="line-connector"></div>
+                <div class="flow-box" style="border-color: #e53935; color: #e53935;">
+                    <i class="fas fa-user-md"></i> Consult Vet
+                </div>
+                <div class="line-down" style="background: #e53935;"></div>
+                <div class="flow-box" style="background: #ffebee;">Get Rx</div>
+            </div>
+
+            <div class="branch-col">
+                <div class="line-connector"></div>
+                <div class="flow-box" style="border-color: #2E7D32;">
+                    <i class="fas fa-rupee-sign"></i> Pashu Mandi
+                </div>
+                <div class="line-down"></div>
+                <div class="flow-box" style="background: #e8f5e9;">Buy / Sell</div>
+            </div>
+
+            <div class="branch-col">
+                <div class="line-connector"></div>
+                <div class="flow-box" style="border-color: #1976D2; color: #1976D2;">
+                    <i class="fas fa-book"></i> Info Hub
+                </div>
+                <div class="line-down" style="background: #1976D2;"></div>
+                <div class="flow-box" style="background: #e3f2fd;">Learn</div>
+            </div>
+        </div>
+    </div>
+</section>
+
+        <section>
+            <h2>Tech Stack</h2>
+            <p style="text-align: center; margin-bottom: 20px;">Built with modern technologies for speed and reliability.</p>
+            <div class="tech-stack">
+                <span class="tech-badge"><i class="fab fa-html5"></i> HTML5</span>
+                <span class="tech-badge"><i class="fab fa-css3-alt"></i> CSS3</span>
+                <span class="tech-badge"><i class="fab fa-js"></i> JavaScript</span>
+                <span class="tech-badge"><i class="fas fa-database"></i> Database</span>
+                <span class="tech-badge"><i class="fab fa-github"></i> GitHub</span>
+            </div>
+        </section>
+
+    </div>
+
+    <footer>
+        <p>Project by <strong>pankhurisinghal08-maker</strong></p>
+        <p>
+            <a href="https://github.com/pankhurisinghal08-maker/PashuSetu" target="_blank">
+                <i class="fab fa-github"></i> View on GitHub
+            </a>
+        </p>
+        <p>&copy; 2024 PashuSetu. All Rights Reserved.</p>
+    </footer>
+
+</body>
+</html>
